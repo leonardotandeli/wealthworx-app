@@ -25,12 +25,14 @@ import TableRow from '@mui/material/TableRow';
 import Box, { BoxProps } from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-
+import Logo from '../public/images/logo.png'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-
+import Image from 'next/image';
+import Header from '../src/components/header/header';
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
   return (
+    
     <Box
       sx={{
         p: 1,
@@ -73,7 +75,10 @@ interface State {
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.black,
+      background: 'linear-gradient(to right, #396afc, #2948ff)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      fontFamily:'Poppins, sans-serif',
+      fontSize: '.775rem',
+      fontWeight: '600',
       color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -127,38 +132,9 @@ if (values.descontos === '') {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
-
-        color="default"
-        elevation={0}
-        sx={{
-          position: 'relative',
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Calcular Salário Liquido  
-          </Typography> 
-
-          <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          p: 1,
-          m: 1,
-          bgcolor: '#f5f5f5',
-          borderRadius: 1,
-        }}
-      >
-
-<Link href="/"><Item>Calcular Salário</Item></Link>
-        <Link href="/historico/salario-liquido"><Item>Histórico de Cálculos</Item></Link>
+      <Header />
 
 
-      </Box>
-        </Toolbar>
-      </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">

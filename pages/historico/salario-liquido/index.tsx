@@ -30,7 +30,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { skipPartiallyEmittedExpressions } from 'typescript';
 import Salario from '../../../src/components/salario/salario';
-
+import Header from '../../../src/components/header/header';
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
   return (
@@ -76,7 +76,11 @@ interface State {
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.black,
+      background: 'linear-gradient(to right, #396afc, #2948ff)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      fontFamily:'Poppins, sans-serif',
+      fontSize: '.775rem',
+      fontWeight: '600',
       color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -94,6 +98,9 @@ interface State {
     },
   }));
   
+  const TableHeadGradient = styled(TableHead)({
+   
+  });
 
  
 
@@ -115,6 +122,9 @@ export default function HistoricoSalario() {
   }, [])
 
 
+
+  
+
   return (
 
 
@@ -123,39 +133,9 @@ export default function HistoricoSalario() {
 
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
 
-        color="default"
-        elevation={0}
-        sx={{
-          position: 'relative',
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Histórico de Salários Cálculados  
-          </Typography> 
-
-          <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          p: 1,
-          m: 1,
-          bgcolor: '#f5f5f5',
-          borderRadius: 1,
-        }}
-      >
-        <Link href="/"><Item>Calcular Salário</Item></Link>
-        <Link href="/historico/salario-liquido"><Item>Histórico de Cálculos</Item></Link>
-
-      </Box>
-        </Toolbar>
-      </AppBar>
-
-
-<h1>teste lista</h1>
+<Header/>
+<h1></h1>
 
 
 
@@ -165,7 +145,7 @@ export default function HistoricoSalario() {
 
 
       <Container maxWidth="lg">
-      <TableContainer component={Paper}>
+      <TableContainer >
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
