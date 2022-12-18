@@ -180,13 +180,6 @@ export default function Salario() {
 
 
 
-if (values.amount === '') {
-  values.amount = '0' 
-}
-
-if (values.descontos === '') {
-  values.descontos = '0'
-}
 //<Alert severity="error">This is an error alert — check it out!</Alert> 
 let alert = 0
   return (
@@ -282,7 +275,7 @@ label="Outros Descontos"
 
 
         <Button onClick={(i) => {
-            if (values.amount == '0') {
+            if (values.amount == '') {
 
                   
                       handleClickError()
@@ -301,10 +294,10 @@ label="Outros Descontos"
   
             
             axios.post('https://api-calc-salario.herokuapp.com/salario', {
-              salarioBruto: values.amount,
-              outrosDescontos: values.descontos,
-              dependentes: values.dependentes,
-              profissao: values.profissao
+              salarioBruto: values.amount || '0',
+              outrosDescontos: values.descontos || '0',
+              dependentes: values.dependentes || '0',
+              profissao: values.profissao || 'Não Informada'
             })
             .then(function (response) {
               setSalario(response.data)
