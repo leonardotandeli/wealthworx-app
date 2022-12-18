@@ -36,6 +36,7 @@ export default function Header() {
 
       const MenuBarBtn = styled(Button)({
         background: '#FFFFFF',
+
         border: '1px solid rgb(209,213,219)',
         fontFamily:'Poppins, sans-serif',
         borderRadius: '.5rem',
@@ -43,9 +44,8 @@ export default function Header() {
         fontWeight: '600',
         color: '#111827',
         fontSize: '.775rem',
-        lineHeight: '1.05rem',
-        padding: '.75rem 1rem',
-        textAlign: 'center',
+        lineHeight: '1.00rem',
+        padding: '.45rem .30rem',
         textDecoration: 'none #D1D5DB solid',
         textDecorationThickness: 'auto',
         boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -66,7 +66,7 @@ export default function Header() {
         color: '#111827',
         fontSize: '.775rem',
         lineHeight: '1.05rem',
-        padding: '.75rem 1rem',
+        padding: '.45rem .30rem',
         textAlign: 'center',
         textDecoration: 'none #D1D5DB solid',
         textDecorationThickness: 'auto',
