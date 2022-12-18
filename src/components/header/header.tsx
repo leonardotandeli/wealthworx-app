@@ -88,7 +88,7 @@ export default function Header() {
         <HeaderBar>
         <Toolbar>
             <Link href="/">
-        <Image alt='' width={200} height={82.33} src={Logo}></Image>
+        <Image alt='' width={160} height={65.33} src={Logo}></Image>
 </Link>
 
           <MenuBar>
