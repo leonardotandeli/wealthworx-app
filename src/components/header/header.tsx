@@ -9,7 +9,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { useRouter } from "next/router";
 import { Console } from 'console';
-
+import Grid from '@mui/material/Grid';
 export default function Header() {
     const router = useRouter();
 
@@ -90,16 +90,17 @@ export default function Header() {
             <Link href="/">
         <Image alt='' width={200} height={82.33} src={Logo}></Image>
 </Link>
+
           <MenuBar>
 
 
 
 {router.pathname === '/' ? 
 <MenuBarLink href="/">
-<MenuBarBtnA>Calcular Salário</MenuBarBtnA>
+<MenuBarBtnA>Calcular</MenuBarBtnA>
 </MenuBarLink>
 : <MenuBarLink href="/">
-<MenuBarBtn>Calcular Salário</MenuBarBtn>
+<MenuBarBtn>Calcular</MenuBarBtn>
 </MenuBarLink>
 }
 

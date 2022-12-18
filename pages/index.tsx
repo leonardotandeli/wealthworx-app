@@ -27,7 +27,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../public/images/logo.png'
 import Alert from '@mui/material/Alert';
-
+import Grid from '@mui/material/Grid';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Image from 'next/image';
 import Header from '../src/components/header/header';
@@ -199,6 +199,10 @@ let alert = 0
       )}
 
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+
+
+
+
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography sx={{
               fontFamily:'Poppins, sans-serif',
@@ -208,7 +212,7 @@ let alert = 0
           </Typography>
 
           <Divider sx={{ mb:4}} />
-          <FormControl fullWidth sx={{ m: 1, width: '56ch'}}>
+          <FormControl fullWidth sx={{ p: 1}}>
 
 
 
@@ -229,7 +233,7 @@ let alert = 0
         </FormControl>
 
 
-        <FormControl fullWidth sx={{ m: 1, width: '56ch'}}>
+        <FormControl fullWidth sx={{p: 1}}>
 
             <InputDescontos id="salarioB2" htmlFor="outlined-adornment-amount2">Outros Descontos</InputDescontos>
       <OutlinedInputSalario
