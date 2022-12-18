@@ -204,7 +204,7 @@ let alert = 0
               fontFamily:'Poppins, sans-serif',
               paddingBottom: '10px'
           }} component="h1" variant="h4" align="center">
-            Calculadora Salário Liquido
+            Calculadora Salário Líquido
           </Typography>
 
           <Divider sx={{ mb:4}} />
@@ -313,7 +313,7 @@ label="Outros Descontos"
           
 
 
-          }} variant="outlined">Calcular Salário Liquido</Button>
+          }} variant="outlined">Calcular Salário Líquido</Button>
   
 
 
