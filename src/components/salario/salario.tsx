@@ -13,7 +13,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-
+import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ISalario from '../../../src/interfaces/ISalario';
 import { styled } from '@mui/material/styles';
@@ -64,9 +64,9 @@ interface SalarioProps {
 
 <StyledTableRow>
 <StyledTableCell scope="row">{salario?.profissao}</StyledTableCell>
-<StyledTableCell scope="row">{salario?.salarioBruto}</StyledTableCell>
-<StyledTableCell scope="row">{salario?.totalDescontos}</StyledTableCell>
-<StyledTableCell scope="row">{salario?.salarioLiquido}</StyledTableCell>
+<StyledTableCell scope="row">{salario?.salarioBruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</StyledTableCell>
+<StyledTableCell scope="row">{salario?.totalDescontos.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</StyledTableCell>
+<StyledTableCell scope="row">{salario?.salarioLiquido.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</StyledTableCell>
 </StyledTableRow>
 
 
