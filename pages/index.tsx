@@ -102,7 +102,8 @@ const InputSalario = styled(InputLabel) ({
   fontFamily:'Poppins, sans-serif',
  
   fontWeight: '600',
-
+  paddingTop: '10px',
+  paddingLeft: '10px',
 
 
 
@@ -112,6 +113,8 @@ const InputSalario = styled(InputLabel) ({
  
 const InputDescontos = styled(InputLabel) ({
   fontFamily:'Poppins, sans-serif',
+  paddingTop: '10px',
+  paddingLeft: '10px',
 
   fontWeight: '600',
   color: '#111827',
