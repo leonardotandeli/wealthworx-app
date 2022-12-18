@@ -26,6 +26,8 @@ import Box, { BoxProps } from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../public/images/logo.png'
+import Alert from '@mui/material/Alert';
+
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Image from 'next/image';
 import Header from '../src/components/header/header';
@@ -96,8 +98,52 @@ interface State {
     },
   }));
   
-
+const InputSalario = styled(InputLabel) ({
+  fontFamily:'Poppins, sans-serif',
  
+  fontWeight: '600',
+
+
+
+
+  color: '#111827',
+
+})
+ 
+const InputDescontos = styled(InputLabel) ({
+  fontFamily:'Poppins, sans-serif',
+
+  fontWeight: '600',
+  color: '#111827',
+
+})
+
+const OutlinedInputSalario = styled(OutlinedInput) ({
+
+  fontFamily:'Poppins, sans-serif',
+  fontWeight: '600',
+
+})
+ 
+
+const TextFieldCalc = styled(TextField) ({
+  borderColor: '#fff',
+  fontFamily:'Poppins, sans-serif',
+  boxSizing: 'border-box',
+  fontSize: '12px',
+  fontWeight: '600',
+  color: '#111827',
+  textAlign: 'center',
+})
+const TextFieldCalcDependente = styled(TextField) ({
+  borderColor: '#fff',
+  fontFamily:'Poppins, sans-serif',
+  boxSizing: 'border-box',
+  fontSize: '8px',
+  fontWeight: '600',
+  color: '#111827',
+  textAlign: 'center',
+})
 
 
 export default function Salario() {
@@ -107,7 +153,11 @@ export default function Salario() {
     setHide(prev => !prev)
    
     }
-
+    const [hide2, setHide2] = React.useState(false);
+    const handleClickError = () => {
+      setHide2(prev => !prev)
+     
+      }
   const [salario, setSalario] = React.useState<ISalario>()
     const [values, setValues] = React.useState<State>({
         amount: '',
@@ -118,8 +168,17 @@ export default function Salario() {
 
       const handleChange =
       (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
+        
         setValues({ ...values, [prop]: event.target.value });
+
+
       };
+
+      const handleChangeDisabled = () => {
+        console.log('nothing')
+      } 
+
+
 
 if (values.amount === '') {
   values.amount = '0' 
@@ -128,16 +187,23 @@ if (values.amount === '') {
 if (values.descontos === '') {
   values.descontos = '0'
 }
-
+//<Alert severity="error">This is an error alert — check it out!</Alert> 
+let alert = 0
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
 
+      { hide2 && ( 
+      <Alert severity="error">Erro! Por favor informar o valor do salário bruto.</Alert>  
+      )}
 
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-          <Typography component="h1" variant="h4" align="center">
+          <Typography sx={{
+              fontFamily:'Poppins, sans-serif',
+              paddingBottom: '10px'
+          }} component="h1" variant="h4" align="center">
             Calculadora Salário Liquido
           </Typography>
 
@@ -146,20 +212,37 @@ if (values.descontos === '') {
 
 
 
-            
-          <InputLabel id="salarioB" htmlFor="outlined-adornment-amount">Salário Bruto</InputLabel>
-          <OutlinedInput
+          <InputSalario id="salarioB" htmlFor="outlined-adornment-amount">Salário Bruto</InputSalario>
+
+
+          <OutlinedInputSalario
 
             id="outlined-adornment-amount"
             value={values.amount}
             onChange={handleChange('amount')}
+            type='number'
             startAdornment={<InputAdornment position="start">R$</InputAdornment>}
-            label="Amount"
+            label="Salário Bruto"
 
           />
+   
         </FormControl>
 
 
+        <FormControl fullWidth sx={{ m: 1, width: '56ch'}}>
+
+            <InputDescontos id="salarioB2" htmlFor="outlined-adornment-amount2">Outros Descontos</InputDescontos>
+      <OutlinedInputSalario
+
+id="outlined-adornment-amount2"
+value={values.descontos}
+onChange={handleChange('descontos')}
+type='number'
+startAdornment={<InputAdornment position="start">R$</InputAdornment>}
+label="Outros Descontos"
+
+/>
+</FormControl>
         <Box
       component="form"
       sx={{
@@ -170,7 +253,7 @@ if (values.descontos === '') {
       noValidate
       autoComplete="off"
     >
-     <TextField id="outlined-basic"  value={values.profissao}  onChange={handleChange('profissao')} label="Profissão" variant="outlined" />
+
 </Box>
 <Box
       component="form"
@@ -184,8 +267,10 @@ if (values.descontos === '') {
     >
 
 
-      <TextField id="outlined-basic"  value={values.descontos}  onChange={handleChange('descontos')} label="Descontos" variant="outlined" />
-      <TextField id="outlined-basic" value={values.dependentes} onChange={handleChange('dependentes')} label="Número de Dependentes" variant="outlined" />
+<TextFieldCalc id="outlined-basic"  value={values.profissao}  onChange={handleChange('profissao')} label="Profissão" variant="outlined" />
+
+
+      <TextFieldCalcDependente id="outlined-basic"  type="number" value={values.dependentes} onChange={handleChange('dependentes')} label="Dependentes" variant="outlined" />
       
     </Box>
 
@@ -193,10 +278,22 @@ if (values.descontos === '') {
 
 
         <Button onClick={(i) => {
+            if (values.amount == '0') {
 
-            if (hide != true) {
-              handleClick()
-            }
+                  
+                      handleClickError()
+                      return
+            } else {
+              if (hide != true ) {
+                  handleClick()
+                  if (hide2 == true) { // some alerta
+                    handleClickError()
+                  } else {
+                        
+                  }
+             }
+            }   
+          
   
             
             axios.post('https://api-calc-salario.herokuapp.com/salario', {
@@ -250,7 +347,7 @@ if (values.descontos === '') {
 <StyledTableRow>
 <StyledTableCell scope="row">Salário Bruto</StyledTableCell>
 <StyledTableCell scope="row">-</StyledTableCell>
-<StyledTableCell scope="row">R$ {values.amount}</StyledTableCell>
+<StyledTableCell scope="row">{salario?.salarioBruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</StyledTableCell>
 <StyledTableCell scope="row">-</StyledTableCell>
 </StyledTableRow>
 
@@ -259,7 +356,7 @@ if (values.descontos === '') {
 <StyledTableCell component="th" scope="row">Outros Descontos</StyledTableCell>
 <StyledTableCell scope="row">-</StyledTableCell>
 <StyledTableCell scope="row">-</StyledTableCell>
-<StyledTableCell scope="row">R$ {values.descontos}</StyledTableCell>
+<StyledTableCell scope="row">{salario?.outrosDescontos.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</StyledTableCell>
 </StyledTableRow>
 
 
