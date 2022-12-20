@@ -191,7 +191,7 @@ let alert = 0
       <Header />
 
       { hide2 && ( 
-      <Alert severity="error">Erro! Por favor informar o valor do salário bruto.</Alert>  
+      <Alert severity="error">Erro! É necessário informar o valor do salário bruto.</Alert>  
       )}
 
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
