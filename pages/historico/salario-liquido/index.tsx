@@ -30,7 +30,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { skipPartiallyEmittedExpressions } from 'typescript';
 import Salario from '../../../src/components/salario/salario';
-import Header from '../../../src/components/header/header';
+import Header from '../../../src/components/Header';
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
   return (

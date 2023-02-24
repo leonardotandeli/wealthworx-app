@@ -1,6 +1,6 @@
 export default interface ISalario {
     id: string
-    salarioBruto: number
+    bruto: number
     dataDeCalculo: Date
     salarioLiquido: number
     dependentes: number
