@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
+import FormHeader from "../FormHeader";
 
 export default function PageTitle() {
   return (
@@ -15,7 +16,7 @@ export default function PageTitle() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs>
+        <Grid item  xs>
           <Typography
             sx={{
               fontFamily: "Raleway",
@@ -48,16 +49,9 @@ export default function PageTitle() {
             dos percentuais de descontos que serão aplicados.
           </Typography>
         </Grid>
-        <Grid item>
-          <Box
-            sx={{
-              width: 463,
-              height: 415,
-              borderRadius: 4,
-              backgroundColor: "#fff",
-            }}
-          />
-        </Grid>
+
+     <FormHeader/>
+
       </Grid>
     </Container>
   );
