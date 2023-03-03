@@ -7,6 +7,10 @@ export default function PageTitle() {
     <Container
       maxWidth="lg"
       sx={{
+
+          display: "flex",
+          flexDirection: "row",
+
         paddingTop: "4rem",
       }}
     >
@@ -15,12 +19,13 @@ export default function PageTitle() {
         direction="row"
         justifyContent="center"
         alignItems="center"
+       
       >
-        <Grid item  xs>
+        <Grid item xs={12} sm={12} md={12} lg={7}>
           <Typography
             sx={{
               fontFamily: "Raleway",
-              margin: "2rem",
+              margin: "1rem",
               fontStyle: "Black",
               fontWeight: "900",
               fontSize: "50px",
@@ -49,9 +54,9 @@ export default function PageTitle() {
             dos percentuais de descontos que serão aplicados.
           </Typography>
         </Grid>
-
+        <Grid item xs={12} sm={12} md={8} lg={5}>
      <FormHeader/>
-
+</Grid>
       </Grid>
     </Container>
   );

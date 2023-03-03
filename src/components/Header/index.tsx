@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Container from "@mui/material/Container";
 import Navbar from "../Navbar";
 import { Link } from "@mui/material";
@@ -7,8 +7,17 @@ import Logo from "../../../public/images/logo.png";
 import { Box, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import PageTitle from "../PageTitle";
+import ResultTable from "../ResultTable";
+import { SalarioContext } from "../../context/SalarioContext";
+
+
+
+
 
 export default function Header() {
+
+
+
   return (
     <Container
       maxWidth={false}
@@ -21,6 +30,7 @@ export default function Header() {
       <Navbar />
 
       <PageTitle />
+
     </Container>
   );
 }
