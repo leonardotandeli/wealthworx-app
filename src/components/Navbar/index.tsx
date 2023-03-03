@@ -24,7 +24,7 @@ export default function Navbar() {
               letterSpacing: "0.303571px",
             }}
           >
-            Calculadora Salário Líquido
+
           </Link>
         </Grid>
       </Grid>
