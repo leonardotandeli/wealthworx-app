@@ -1,16 +1,13 @@
-export default interface ISalario {
-    id: string
-    bruto: number
-    dataDeCalculo: Date
-    salarioLiquido: number
-    dependentes: number
-    aliquotaINSS: number
-    aliquotaIRPF: number
-    descontoINSS: number
-    descontoIRPF: number
-    outrosDescontos: number
-    totalDescontos: number
-    profissao: string
-
-
+export interface ISalario {
+    bruto: number;
+    outrosDescontos: number;
+    totalDependentes: number;
+    liquido: number;
+    valorDescontoInss: number;
+    valorDescontoIrpf: number;
+    aliquotaRealInss: number;
+    aliquotaRealIrpf: number;
+    totalDesconto: number;
+    profissao: string;
 }
+
