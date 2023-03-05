@@ -33,38 +33,26 @@ import Image from "next/image";
 import Header from "../src/components/Header";
 import ResultTable from "../src/components/ResultTable";
 import SectionTitle from "../src/components/SectionTitle";
-import { SalarioContext, SalarioContextProvider } from "../src/context/SalarioContext";
+import {
+  SalarioContext,
+  SalarioContextProvider,
+} from "../src/context/SalarioContext";
 import HowItWorks from "../src/components/HowItWorks";
 import HowItWorksBigText from "../src/components/HowItWorksBigText";
 import FooterInfo from "../src/components/FooterInfo";
 import Footer from "../src/components/Footer";
 
-
 const theme = createTheme();
 
-
-
 export default function Salario() {
-
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <SalarioContextProvider>
           <Header />
-
-      
-<ResultTable />
-
-
-
+          <ResultTable />
         </SalarioContextProvider>
-
-        <SectionTitle/>
-
-
-      <HowItWorks/>
-
       </ThemeProvider>
     </React.Fragment>
   );
