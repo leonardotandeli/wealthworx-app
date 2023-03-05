@@ -51,7 +51,7 @@ export default function FormHeader() {
 
   const onSubmit = () => {
     if (salarioBruto !== 0) {
-      postData(process.env.APPURL ?? "http://localhost:3000/api/v1/salario", {
+      postData(process.env.APIURL ?? "http://localhost:3000/api/v1/salario", {
         bruto: salarioBruto,
         outrosDescontos: outrosDescontos,
         totalDependentes: dependentes,
