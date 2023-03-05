@@ -2,16 +2,19 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import FormHeader from "../FormHeader";
 
-export default function PageTitle() {
+interface PageTitleProps {
+  title: string;
+  description: string;
+}
+
+export default function PageTitle({ title, description }: PageTitleProps) {
   return (
     <Container
       maxWidth="lg"
       sx={{
-
-          display: "flex",
-          flexDirection: "row",
-
-        paddingTop: "4rem",
+        display: "flex",
+        flexDirection: "row",
+        paddingTop: "3rem",
       }}
     >
       <Grid
@@ -19,7 +22,9 @@ export default function PageTitle() {
         direction="row"
         justifyContent="center"
         alignItems="center"
-       
+        sx={{
+          marginBottom: "4rem",
+        }}
       >
         <Grid item xs={12} sm={12} md={12} lg={7}>
           <Typography
@@ -34,13 +39,12 @@ export default function PageTitle() {
               color: "#FFFFFF",
             }}
           >
-            Calculadora <br />
-            Salário Líquido
+            {title}
           </Typography>
           <Typography
             sx={{
               fontFamily: "Raleway",
-              margin: "2rem",
+              margin: "1rem",
               fontStyle: "Medium",
               fontWeight: "500",
               fontSize: "18px",
@@ -49,14 +53,12 @@ export default function PageTitle() {
               color: "#FFFFFF",
             }}
           >
-            Para calcular o salário líquido, é necessário inserir o valor do
-            salário bruto. Esse valor será utilizado como base para o cálculo
-            dos percentuais de descontos que serão aplicados.
+            {description}
           </Typography>
         </Grid>
         <Grid item xs={12} sm={12} md={8} lg={5}>
-     <FormHeader/>
-</Grid>
+          <FormHeader />
+        </Grid>
       </Grid>
     </Container>
   );

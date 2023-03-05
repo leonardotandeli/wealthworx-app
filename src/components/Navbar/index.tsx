@@ -1,18 +1,24 @@
 import { Container, Link } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../../../public/images/logo.png";
 import { Grid } from "@mui/material";
 import Image from "next/image";
+import { SalarioContext } from "../../context/SalarioContext";
 
 export default function Navbar() {
+
+const {salario} = useContext(SalarioContext)
+
   return (
-    <Container  maxWidth="lg">
-      <Grid container direction="row" alignItems="center">
+<>
+      <Grid container direction="row" alignItems="center" sx={{
+                      paddingBottom: ".5rem"
+      }}>
         <Grid item xs>
           <Image src={Logo} width={155} height={29} alt="WealthWorx" />
         </Grid>
         <Grid item>
-          <Link
+          <Link href="/"
             sx={{
               textDecoration: "none",
               color: "#73E6BA",
@@ -22,12 +28,13 @@ export default function Navbar() {
               lineHeight: "22px",
               fontWeight: "900",
               letterSpacing: "0.303571px",
+
             }}
           >
-
+            Calculadora Salário Líquido
           </Link>
         </Grid>
       </Grid>
-    </Container>
+      </>
   );
 }

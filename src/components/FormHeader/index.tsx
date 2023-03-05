@@ -51,7 +51,7 @@ export default function FormHeader() {
 
   const onSubmit = () => {
     if (salarioBruto !== 0) {
-      postData(process.env.APIURL ?? "http://localhost:3000/api/v1/salario", {
+      postData(process.env.APIURL, {
         bruto: salarioBruto,
         outrosDescontos: outrosDescontos,
         totalDependentes: dependentes,
@@ -65,9 +65,10 @@ export default function FormHeader() {
 
     <Box
       sx={{
-        boxShadow: 1,
+        boxShadow: 5,
         borderRadius: "4px",
         backgroundColor: "#fff",
+
       }}
     >
       <Typography
