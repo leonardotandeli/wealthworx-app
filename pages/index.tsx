@@ -1,5 +1,7 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
+
+
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
@@ -41,6 +43,7 @@ import HowItWorks from "../src/components/HowItWorks";
 import HowItWorksBigText from "../src/components/HowItWorksBigText";
 import FooterInfo from "../src/components/FooterInfo";
 import Footer from "../src/components/Footer";
+import SEO from "../src/components/SEO";
 
 const theme = createTheme();
 
@@ -48,11 +51,16 @@ export default function Salario() {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
+      <SEO/>
         <CssBaseline />
         <SalarioContextProvider>
           <Header />
-          <ResultTable />
         </SalarioContextProvider>
+        <SectionTitle />
+        <HowItWorks />
+        <HowItWorksBigText />
+        <FooterInfo />
+        <Footer />
       </ThemeProvider>
     </React.Fragment>
   );
