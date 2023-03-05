@@ -51,7 +51,7 @@ export default function FormHeader() {
 
   const onSubmit = () => {
     if (salarioBruto !== 0) {
-      postData(process.env.APIURL, {
+      postData("https://wealthworx-api.herokuapp.com/api/v1/salario", {
         bruto: salarioBruto,
         outrosDescontos: outrosDescontos,
         totalDependentes: dependentes,
